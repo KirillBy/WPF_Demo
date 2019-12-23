@@ -1,0 +1,27 @@
+﻿<Window x:Class="DesktopContactApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopContactApp"
+        xmlns:uc ="clr-namespace:DesktopContactApp.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Margin="10">
+        <Button Content="New Contact"
+                Name="newContactButton"
+                Click="newContactButton_Click"/>
+        <TextBox Margin="0, 5, 0, 0"
+                 TextChanged="TextBox_TextChanged"/>
+        <ListView x:Name="contactListView"
+                  Margin="0,5,0,0" Height ="300" 
+                  SelectionChanged="contactListView_SelectionChanged">
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <uc:UserControl1 Contacts="{Binding}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
+</Window>
